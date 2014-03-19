@@ -21,6 +21,8 @@
 		6EB8D17C18D9586200DDE794 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB8D15E18D9586200DDE794 /* UIKit.framework */; };
 		6EB8D18418D9586200DDE794 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EB8D18218D9586200DDE794 /* InfoPlist.strings */; };
 		6EB8D18618D9586200DDE794 /* TestLiveBlurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8D18518D9586200DDE794 /* TestLiveBlurTests.m */; };
+		6EB8D19018D958A500DDE794 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB8D18F18D958A500DDE794 /* GPUImage.framework */; };
+		6EB8D19418D958EC00DDE794 /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8D19318D958EC00DDE794 /* BlurView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		6EB8D18118D9586200DDE794 /* TestLiveBlurTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestLiveBlurTests-Info.plist"; sourceTree = "<group>"; };
 		6EB8D18318D9586200DDE794 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EB8D18518D9586200DDE794 /* TestLiveBlurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLiveBlurTests.m; sourceTree = "<group>"; };
+		6EB8D18F18D958A500DDE794 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUImage.framework; sourceTree = "<group>"; };
+		6EB8D19218D958EC00DDE794 /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = "<group>"; };
+		6EB8D19318D958EC00DDE794 /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB8D15D18D9586200DDE794 /* CoreGraphics.framework in Frameworks */,
+				6EB8D19018D958A500DDE794 /* GPUImage.framework in Frameworks */,
 				6EB8D15F18D9586200DDE794 /* UIKit.framework in Frameworks */,
 				6EB8D15B18D9586200DDE794 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +107,7 @@
 		6EB8D15918D9586200DDE794 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EB8D18F18D958A500DDE794 /* GPUImage.framework */,
 				6EB8D15A18D9586200DDE794 /* Foundation.framework */,
 				6EB8D15C18D9586200DDE794 /* CoreGraphics.framework */,
 				6EB8D15E18D9586200DDE794 /* UIKit.framework */,
@@ -112,6 +119,7 @@
 		6EB8D16018D9586200DDE794 /* TestLiveBlur */ = {
 			isa = PBXGroup;
 			children = (
+				6EB8D19118D958DE00DDE794 /* BlurView */,
 				6EB8D16918D9586200DDE794 /* GLTAppDelegate.h */,
 				6EB8D16A18D9586200DDE794 /* GLTAppDelegate.m */,
 				6EB8D16C18D9586200DDE794 /* Main.storyboard */,
@@ -150,6 +158,15 @@
 				6EB8D18218D9586200DDE794 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EB8D19118D958DE00DDE794 /* BlurView */ = {
+			isa = PBXGroup;
+			children = (
+				6EB8D19218D958EC00DDE794 /* BlurView.h */,
+				6EB8D19318D958EC00DDE794 /* BlurView.m */,
+			);
+			name = BlurView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB8D17118D9586200DDE794 /* GLTViewController.m in Sources */,
+				6EB8D19418D958EC00DDE794 /* BlurView.m in Sources */,
 				6EB8D16B18D9586200DDE794 /* GLTAppDelegate.m in Sources */,
 				6EB8D16718D9586200DDE794 /* main.m in Sources */,
 			);
@@ -379,10 +397,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestLiveBlur/TestLiveBlur-Prefix.pch";
 				INFOPLIST_FILE = "TestLiveBlur/TestLiveBlur-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "57425651-9C64-495D-B7D6-E4B244D1CA82";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +417,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestLiveBlur/TestLiveBlur-Prefix.pch";
 				INFOPLIST_FILE = "TestLiveBlur/TestLiveBlur-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "57425651-9C64-495D-B7D6-E4B244D1CA82";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -459,6 +491,7 @@
 				6EB8D18B18D9586200DDE794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EB8D18C18D9586200DDE794 /* Build configuration list for PBXNativeTarget "TestLiveBlurTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +500,7 @@
 				6EB8D18E18D9586200DDE794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
